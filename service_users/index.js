@@ -126,6 +126,10 @@ app.get("/users/health", (req, res) => {
   );
 });
 
-app.listen(PORT, () => {
-  console.log(`Users service running on port ${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Users service running on port ${PORT}`);
+  });
+}
+module.exports = app;
+
