@@ -1,11 +1,12 @@
-const events = [];
+const fs = require("fs");
+const path = require("path");
 
-function pushEvent(event) {
-  events.push({ id: Date.now(), ...event });
+const outboxFile = path.join(__dirname, "outbox.json");
+
+function publishEvent(event) {
+  const events = JSON.parse(fs.readFileSync(outboxFile, "utf-8") || "[]");
+  events.push(event);
+  fs.writeFileSync(outboxFile, JSON.stringify(events, null, 2));
 }
 
-function getEvents() {
-  return events;
-}
-
-module.exports = { pushEvent, getEvents };
+module.exports = { publishEvent };
