@@ -8,9 +8,12 @@ const logger = require("./src/logger");
 const requestId = require("./src/middleware/requestId")();
 const responseFormat = require("./src/middleware/responseFormat")();
 const jwt = require("jsonwebtoken");
+const swaggerRouter = require("./swagger");
 
 const app = express();
 const PORT = process.env.PORT || 8000;
+
+app.use(swaggerRouter);
 
 const USERS_SERVICE_URL = process.env.USERS_URL || "http://service_users:8000";
 const ORDERS_SERVICE_URL =

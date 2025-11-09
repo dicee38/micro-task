@@ -2,7 +2,7 @@ const request = require("supertest");
 const express = require("express");
 const bodyParser = require("body-parser");
 
-const { requestIdMiddleware } = require("../shared/middleware/requestId");
+const requestIdMiddleware = require("../shared/middleware/requestId")(); // <- исправлено
 const logger = require("../shared/logger");
 
 const app = express();
