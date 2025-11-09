@@ -1,0 +1,101 @@
+{
+  "info": {
+    "name": "API Gateway Test Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "00000000-0000-0000-0000-000000000000"
+  },
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\",\n  \"name\": \"Test User\",\n  \"roles\": [\"user\"]\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8000/users/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["users", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8000/users/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["users", "login"]
+            }
+          }
+        },
+        {
+          "name": "Get Users List",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/users",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["users"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": 1,\n  \"items\": [{\"product\": \"Product A\", \"quantity\": 2}]\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8000/orders",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["orders"]
+            }
+          }
+        },
+        {
+          "name": "Get Orders List",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/orders",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["orders"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
