@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { v4: uuidv4 } = require("uuid");
+const logger = require("./shared/logger");
 
 const app = express();
 const PORT = process.env.PORT || 8000;

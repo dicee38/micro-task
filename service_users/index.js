@@ -4,7 +4,8 @@ const cors = require("cors");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { v4: uuidv4 } = require("uuid");
-const logger = require("../api_gateway/src/logger"); // reuse logger path or duplicate logger locally
+const logger = require("./shared/logger");
+// reuse logger path or duplicate logger locally
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -132,4 +133,3 @@ if (require.main === module) {
   });
 }
 module.exports = app;
-
